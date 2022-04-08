@@ -62,3 +62,18 @@ export const CardContent = styled.p`
   font-size: 18px;
   line-height: 21px;
 `;
+
+export const CardModalFooterButton = styled.button`
+  background-color: #ffffff;
+  margin: 5% 2% -1%;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 19px;
+  height: 1.5rem;
+  color: #000000;
+  width: 20%;
+`;

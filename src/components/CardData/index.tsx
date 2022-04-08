@@ -5,6 +5,7 @@ import {
   Card,
   CardContent,
   CardName,
+  CardModalFooterButton,
   CardNameDate,
   CardHeaderIcons,
 } from "./styles";
@@ -14,9 +15,15 @@ import { useSelector } from "../../redux/store";
 import { fetchRequestSucces } from "../../actions/actions";
 import { formatDistanceToNow } from "date-fns";
 import { useParams } from "react-router-dom";
+import Modal, {
+  ModalHeader,
+  ModalFooter,
+  useModal,
+} from "../../components/ModalDelet";
 
 function CardData() {
-  const id = useParams();
+  const { isShowing, toggle } = useModal();
+
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
   const userX = useSelector((state) => state.data);
@@ -50,7 +57,16 @@ function CardData() {
   useEffect(() => {
     fetchProducts();
     setData(userX.data);
-  }, [data]);
+  }, [user]);
+
+  const Testee = (id) => {
+    deletePost(id);
+    deletePost(id);
+    setData(userX.data);
+    fetchProducts();
+  };
+
+  console.log("fff", data);
 
   const handleTime = (date) => {
     const result = formatDistanceToNow(new Date(date), { addSuffix: true });
@@ -65,9 +81,29 @@ function CardData() {
               <CardHeaderIcons>
                 <CardHeader>{item.title}</CardHeader>
 
+                <Modal {...{ isShowing, toggle }}>
+                  <ModalHeader {...{ toggle }}>
+                    Are you sure you want to delete this item?
+                  </ModalHeader>
+                  <ModalFooter toggle={toggle}>
+                    <>
+                      <CardModalFooterButton onClick={toggle}>
+                        Cancel
+                      </CardModalFooterButton>
+                      <CardModalFooterButton
+                        type="button"
+                        onChange={toggle}
+                        onClick={() => Testee(item.id)}
+                      >
+                        OK
+                      </CardModalFooterButton>
+                    </>
+                  </ModalFooter>
+                </Modal>
+
                 <span className="iconsSpan">
                   <button
-                    onClick={() => deletePost(item.id)}
+                    onClick={toggle}
                     type="button"
                     className="material-icons icons"
                   >
