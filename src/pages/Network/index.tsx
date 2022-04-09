@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import InputWhatsMind from "../../components/WhatsInMindCard";
-import { Header, NetworkBg, FooterStyled } from "./styles";
 import api from "../../api/axios";
 import { useDispatch } from "react-redux";
+
+import InputWhatsMind from "../../components/WhatsInMindCard";
+import CardData from "../../components/CardData";
+
+import { Header, NetworkBg, FooterStyled } from "./styles";
 import { useSelector } from "../../redux/store";
 import { fetchRequestSucces } from "../../actions/actions";
-import CardData from "../../components/CardData";
 
 function Network() {
   const dispatch = useDispatch();
