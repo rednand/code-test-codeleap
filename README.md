@@ -1,4 +1,4 @@
-# Code Test
+# <h1 id="code">Code Test</h1>
 
 Website created as part of a selection process.
 
@@ -42,4 +42,4 @@ yarn dev
 
 https://code-test-codeleap.vercel.app/
 
-[⬆ Back to top](#Code)<br>
+[⬆ Back to top](#CodeTeste)<br>
