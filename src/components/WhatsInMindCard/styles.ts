@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SignUpBloc = styled.div`
   font-family: "Roboto";
   width: 60%;
-  margin: auto;
+  margin: 2% auto;
   background: #ffffff;
   padding: 1% 2%;
   border: 3px solid #000000;

@@ -13,7 +13,13 @@ export const Header = styled.div`
   line-height: 26px;
   color: #ffffff;
   padding: 2%;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
+`;
+
+export const GoBack = styled.a`
+  color: #000000;
+  margin: 2% 20%;
+  font-weight: 700;
 `;
 
 export const FooterStyled = styled.div`

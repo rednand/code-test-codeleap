@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import InputWhatsMind from "../../components/WhatsInMindCard";
 import CardData from "../../components/CardData";
 
-import { Header, NetworkBg, FooterStyled } from "./styles";
+import { Header, NetworkBg, GoBack, FooterStyled } from "./styles";
 import { useSelector } from "../../redux/store";
 import { fetchRequestSucces } from "../../actions/actions";
 
@@ -32,6 +32,7 @@ function Network() {
   return (
     <NetworkBg>
       <Header>CodeLeap Network</Header>
+      <GoBack href="/sign">Go Back</GoBack>
       <InputWhatsMind />
       <CardData />
       <FooterStyled>CodeLeap Network &copy;</FooterStyled>

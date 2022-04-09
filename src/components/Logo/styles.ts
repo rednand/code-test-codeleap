@@ -10,7 +10,16 @@ export const LogoImg = styled.div`
   justify-content: center;
 
   img {
-    width: 20%;
+    width: 30%;
+    animation: zoom-in 2s ease;
+    @keyframes zoom-in {
+      0% {
+        transform: scale(0.1, 0.1);
+      }
+      100% {
+        transform: scale(1, 1);
+      }
+    }
   }
 `;
 
@@ -23,4 +32,14 @@ export const Login = styled.button`
   height: 2rem;
   align-items: center;
   cursor: pointer;
+  animation: fading 5s ease;
+
+  @keyframes fading {
+    0% {
+      background-color: #ffffff;
+    }
+    100% {
+      background-color: #000000;
+    }
+  }
 `;

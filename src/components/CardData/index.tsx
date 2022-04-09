@@ -58,7 +58,7 @@ function CardData() {
 
   const updatePost = async (id) => {
     try {
-      const response = await updateCardPost(
+      await updateCardPost(
         id,
         user,
         updateCard.title,
