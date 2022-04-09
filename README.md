@@ -17,7 +17,7 @@ Network page image:
 ```
 npm install
 ```
-ou
+or
 
 ```
 yarn install 
