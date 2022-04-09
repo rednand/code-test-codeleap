@@ -29,4 +29,3 @@ export const FooterStyled = styled.div`
   padding: 2%;
   text-align: center;
 `;
-

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import {
   CardHeader,
   CardBody,
@@ -9,26 +10,41 @@ import {
   CardNameDate,
   CardHeaderIcons,
 } from "./styles";
+
 import api from "../../api/axios";
+import { deletePost, updateCardPost } from "../../actions/services";
 import { useDispatch } from "react-redux";
+import { handleTime } from "../../utils/utils";
+
 import { useSelector } from "../../redux/store";
 import { fetchRequestSucces } from "../../actions/actions";
-import { formatDistanceToNow } from "date-fns";
-import { useParams } from "react-router-dom";
-import Modal, {
-  ModalHeader,
-  ModalFooter,
-  useModal,
+
+import ModalDelete, {
+  ModalHeaderDelete,
+  ModalFooterDelete,
+  useModalDelete,
 } from "../../components/ModalDelet";
+import ModalEdit, {
+  ModalHeaderEdit,
+  ModalFooterEdit,
+  useModalEdit,
+} from "../../components/ModalEdit";
+
+const initialContent = {
+  id: "",
+  user: "",
+  title: "",
+  content: "",
+};
 
 function CardData() {
-  const { isShowing, toggle } = useModal();
-
+  const { ShowingModalDelete, clickModalDelete } = useModalDelete();
+  const { ShowingModalEdit, clickModalEdit } = useModalEdit();
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
   const userX = useSelector((state) => state.data);
-
   const user = useSelector((state) => state.user.user);
+  const [updateCard, setUpdateCard] = useState({ ...initialContent });
 
   const fetchProducts = async () => {
     const response = await api
@@ -40,38 +56,32 @@ function CardData() {
     dispatch(fetchRequestSucces(response));
   };
 
-  const deletePost = async (id) => {
-    const response = await api.delete(`${id}/`);
-    return response.data;
+  const updatePost = async (id) => {
+    try {
+      const response = await updateCardPost(
+        id,
+        user,
+        updateCard.title,
+        updateCard.content
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const updatePost = async (id, title, content) => {
-    const infoJson = {
-      title: title,
-      content: content,
-    };
-    const req = await api.patch(`${id}/`, infoJson);
-    return req.data;
+  const Delete = async (id) => {
+    await deletePost(id).then(() => window.location.reload());
+  };
+
+  const Edit = async (id) => {
+    await updatePost(id).then(() => window.location.reload());
   };
 
   useEffect(() => {
     fetchProducts();
     setData(userX.data);
-  }, [user]);
+  }, []);
 
-  const Testee = (id) => {
-    deletePost(id);
-    deletePost(id);
-    setData(userX.data);
-    fetchProducts();
-  };
-
-  console.log("fff", data);
-
-  const handleTime = (date) => {
-    const result = formatDistanceToNow(new Date(date), { addSuffix: true });
-    return result;
-  };
   return (
     <>
       {userX.data.map((item) => {
@@ -80,37 +90,81 @@ function CardData() {
             {user === item.username ? (
               <CardHeaderIcons>
                 <CardHeader>{item.title}</CardHeader>
-
-                <Modal {...{ isShowing, toggle }}>
-                  <ModalHeader {...{ toggle }}>
+                <ModalDelete {...{ ShowingModalDelete, clickModalDelete }}>
+                  <ModalHeaderDelete {...{ clickModalDelete }}>
                     Are you sure you want to delete this item?
-                  </ModalHeader>
-                  <ModalFooter toggle={toggle}>
+                  </ModalHeaderDelete>
+                  <ModalFooterDelete clickModalDelete={clickModalDelete}>
                     <>
-                      <CardModalFooterButton onClick={toggle}>
+                      <CardModalFooterButton onClick={clickModalDelete}>
                         Cancel
                       </CardModalFooterButton>
                       <CardModalFooterButton
                         type="button"
-                        onChange={toggle}
-                        onClick={() => Testee(item.id)}
+                        onClick={() => Delete(item.id)}
                       >
                         OK
                       </CardModalFooterButton>
                     </>
-                  </ModalFooter>
-                </Modal>
+                  </ModalFooterDelete>
+                </ModalDelete>
+
+                <ModalEdit {...{ ShowingModalEdit, clickModalEdit }}>
+                  <ModalHeaderEdit {...{ clickModalEdit }}>
+                    Edit item
+                  </ModalHeaderEdit>
+                  <ModalFooterEdit clickModalEdit={clickModalEdit}>
+                    <div className="contentModal">
+                      <div className="inputModal">
+                        <label className="title label">Title</label>
+                        <input
+                          className="input"
+                          required
+                          placeholder={item.title}
+                          type="text"
+                          onChange={(e) =>
+                            setUpdateCard({
+                              ...updateCard,
+                              title: e.target.value,
+                            })
+                          }
+                        />
+                        <label className="label">Content</label>
+                        <textarea
+                          className="input"
+                          rows={4}
+                          placeholder={item.content}
+                          cols={50}
+                          required
+                          onChange={(e) =>
+                            setUpdateCard({
+                              ...updateCard,
+                              content: e.target.value,
+                            })
+                          }
+                        />
+                      </div>
+                      <CardModalFooterButton
+                        type="button"
+                        className="save"
+                        onClick={() => Edit(item.id)}
+                      >
+                        SAVE
+                      </CardModalFooterButton>
+                    </div>
+                  </ModalFooterEdit>
+                </ModalEdit>
 
                 <span className="iconsSpan">
                   <button
-                    onClick={toggle}
+                    onClick={clickModalDelete}
                     type="button"
                     className="material-icons icons"
                   >
                     delete_forever
                   </button>
                   <button
-                    onClick={() => console.log("teste")}
+                    onClick={clickModalEdit}
                     type="button"
                     className="material-icons icons"
                   >

@@ -59,16 +59,6 @@ function InputWhatsMind() {
     }
   };
 
-  const deleteCardPost = async (username, title, content) => {
-    const data = {
-      username: username,
-      title: title,
-      content: content,
-    };
-    const response = await api.post(`${"id"}`, data);
-    return response.data;
-  };
-
   return (
     <>
       <SignUpBloc>

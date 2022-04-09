@@ -3,7 +3,7 @@ import InputWhatsMind from "../../components/WhatsInMindCard";
 import { Header, NetworkBg, FooterStyled } from "./styles";
 import api from "../../api/axios";
 import { useDispatch } from "react-redux";
-import { RootState, useSelector } from "../../redux/store";
+import { useSelector } from "../../redux/store";
 import { fetchRequestSucces } from "../../actions/actions";
 import CardData from "../../components/CardData";
 
@@ -11,7 +11,6 @@ function Network() {
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
   const userX = useSelector((state) => state.data);
-  console.log("State: ", userX);
 
   const fetchProducts = async () => {
     const response = await api

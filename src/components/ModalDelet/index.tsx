@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import ReactFrom from "react-dom";
 import {
   ModalHeaderdIV,
   ModalFooterStyled,
@@ -10,18 +9,18 @@ import {
 } from "./styles";
 
 interface ModalProps {
-  isShowing: boolean;
-  toggle: () => void;
+  ShowingModalDelete: boolean;
+  clickModalDelete: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ isShowing, toggle, children }) => {
+const ModalDelete: React.FC<ModalProps> = ({ ShowingModalDelete, clickModalDelete, children }) => {
   useEffect(() => {
     const listner = function (e: KeyboardEvent) {
       if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
         e.preventDefault();
         e.stopPropagation();
 
-        isShowing && toggle();
+        ShowingModalDelete && clickModalDelete();
       }
     };
 
@@ -30,9 +29,9 @@ const Modal: React.FC<ModalProps> = ({ isShowing, toggle, children }) => {
     return () => {
       window.removeEventListener("keyup", listner);
     };
-  }, [isShowing, toggle]);
+  }, [ShowingModalDelete, clickModalDelete]);
 
-  return isShowing ? (
+  return ShowingModalDelete ? (
     <>
       <ModalOverlay>
         <ModalWrapper>
@@ -44,11 +43,11 @@ const Modal: React.FC<ModalProps> = ({ isShowing, toggle, children }) => {
 };
 
 interface ModalHeaderProps {
-  toggle: () => void;
+  clickModalDelete: () => void;
 }
 
-export const ModalHeader: React.FC<ModalHeaderProps> = ({
-  toggle,
+export const ModalHeaderDelete: React.FC<ModalHeaderProps> = ({
+  clickModalDelete,
   children,
 }) => <ModalHeaderdIV>{children || "Title"}</ModalHeaderdIV>;
 
@@ -56,22 +55,22 @@ export const ModalBody: React.FC = ({ children }) => (
   <ModalBodyStyled>{children}</ModalBodyStyled>
 );
 
-export const ModalFooter: React.FC<ModalHeaderProps> = ({
+export const ModalFooterDelete: React.FC<ModalHeaderProps> = ({
   children,
-  toggle,
-}) => <ModalFooterStyled onClick={toggle}>{children}</ModalFooterStyled>;
+  clickModalDelete,
+}) => <ModalFooterStyled onClick={clickModalDelete}>{children}</ModalFooterStyled>;
 
-export const useModal = () => {
-  const [isShowing, setIsShowing] = useState(false);
+export const useModalDelete = () => {
+  const [ShowingModalDelete, setShowingModalDelete] = useState(false);
 
-  function toggle() {
-    setIsShowing(!isShowing);
+  function clickModalDelete() {
+    setShowingModalDelete(!ShowingModalDelete);
   }
 
   return {
-    isShowing,
-    toggle,
+    ShowingModalDelete,
+    clickModalDelete,
   };
 };
 
-export default Modal;
+export default ModalDelete;

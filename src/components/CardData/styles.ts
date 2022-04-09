@@ -15,6 +15,7 @@ export const CardHeaderIcons = styled.h2`
   justify-content: space-between;
   width: 100%;
   color: #ffffff;
+
   .iconsSpan {
     display: inline-flex;
     padding: 2% 4%;
@@ -27,6 +28,31 @@ export const CardHeaderIcons = styled.h2`
     color: #ffffff;
     background-color: #000000;
   }
+  .contentModal {
+    margin: auto;
+    width: 100%;
+  }
+  .inputModal {
+    display: block;
+  }
+  .title {
+    width: 100%;
+    color: #000000;
+  }
+  .input {
+    width: 98%;
+    margin: 2% 0;
+  }
+  .save {
+    background-color: #000000;
+    border: none;
+    color: #ffffff;
+    width: 15%;
+    margin: 1% 85%;
+    justify-content: end;
+    align-content: flex-end;
+    height: 1.8rem;
+  }
 `;
 
 export const CardHeader = styled.h2`
@@ -34,6 +60,8 @@ export const CardHeader = styled.h2`
   font-weight: 700;
   font-size: 22px;
   line-height: 26px;
+  word-wrap: break-word;
+  width: 50%;
 `;
 
 export const CardBody = styled.div`
@@ -53,6 +81,7 @@ export const CardNameDate = styled.div`
 export const CardName = styled.p`
   padding: 2%;
   color: #777777;
+  word-wrap: break-word;
 `;
 
 export const CardContent = styled.p`
@@ -61,6 +90,7 @@ export const CardContent = styled.p`
   font-weight: 500;
   font-size: 18px;
   line-height: 21px;
+  word-wrap: break-word;
 `;
 
 export const CardModalFooterButton = styled.button`
@@ -76,4 +106,5 @@ export const CardModalFooterButton = styled.button`
   height: 1.5rem;
   color: #000000;
   width: 20%;
+  cursor: pointer;
 `;

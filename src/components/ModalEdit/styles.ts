@@ -17,9 +17,8 @@ export const ModalBodyStyled = styled.div`
 
 export const ModalFooterStyled = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: end;
-  padding: 8px;
+  justify-content: center;
+  color: black;
 `;
 
 export const ModalOverlay = styled.div`

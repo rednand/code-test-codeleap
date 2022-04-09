@@ -1,11 +1,4 @@
-import {
-  FETCH_BEGIN,
-  FETCH_SUCCESS,
-  FETCH_ERROR,
-  CREATE_EMAIL_BEGIN,
-  CREATE_EMAIL_SUCCESS,
-  CREATE_EMAIL_ERROR,
-} from "../actions/actions";
+import { FETCH_SUCCESS } from "../actions/actions";
 
 const initialState = {
   loading: false,
@@ -14,42 +7,11 @@ const initialState = {
 
 export const dataReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case FETCH_BEGIN: {
-      return {
-        ...state,
-        loading: true,
-      };
-    }
-    case FETCH_ERROR: {
-      return {
-        ...state,
-        loading: false,
-      };
-    }
     case FETCH_SUCCESS: {
-      console.log("success", state);
       return {
         ...state,
         loading: false,
         data: payload,
-      };
-    }
-    case CREATE_EMAIL_BEGIN: {
-      return {
-        ...state,
-        loading: true,
-      };
-    }
-    case CREATE_EMAIL_ERROR: {
-      return {
-        ...state,
-        loading: false,
-      };
-    }
-    case CREATE_EMAIL_SUCCESS: {
-      return {
-        ...state,
-        loading: false,
       };
     }
     default:
