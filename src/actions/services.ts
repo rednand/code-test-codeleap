@@ -15,7 +15,7 @@ export const deletePost = async (id) => {
   return response.data;
 };
 
-export const fetchProducts = async () => {
+export const getData = async () => {
   const response = await api
     .get("")
     .then((response) => response.data.results)

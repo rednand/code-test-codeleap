@@ -12,9 +12,9 @@ import { fetchRequestSucces } from "../../actions/actions";
 function Network() {
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
-  const userX = useSelector((state) => state.data);
+  const dataStore = useSelector((state) => state.data);
 
-  const fetchProducts = async () => {
+  const getData = async () => {
     const response = await api
       .get("")
       .then((response) => response.data.results)
@@ -25,8 +25,8 @@ function Network() {
   };
 
   useEffect(() => {
-    fetchProducts();
-    setData(userX.data);
+    getData();
+    setData(dataStore.data);
   }, [data]);
 
   return (
