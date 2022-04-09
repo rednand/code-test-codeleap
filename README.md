@@ -1,4 +1,4 @@
-# <h1 id="code">Code Test</h1>
+# Code Test
 
 Website created as part of a selection process.
 
