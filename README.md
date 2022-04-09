@@ -41,5 +41,3 @@ yarn dev
 ## Project link running in vercel:
 
 https://code-test-codeleap.vercel.app/
-
-[⬆ Back to top](#CodeTeste)<br>
