@@ -2,9 +2,11 @@
 
 Website created as part of a selection process.
 
-Homepage image:
+Home page image:
 ![homepage](https://user-images.githubusercontent.com/63618987/162581041-4c53a736-b564-455b-ba20-72ca05269c31.PNG)
 
+Login page image:
+![loginPage](https://user-images.githubusercontent.com/63618987/162581136-7f1c4953-2039-4eea-8736-8b45050a3847.PNG)
 
 ## To install project dependencies
 
