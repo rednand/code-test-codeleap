@@ -20,6 +20,9 @@ export const LogoImg = styled.div`
         transform: scale(1, 1);
       }
     }
+    @media (max-width: 900px) {
+      width: 50%;
+    }
   }
 `;
 
@@ -41,5 +44,9 @@ export const Login = styled.button`
     100% {
       background-color: #000000;
     }
+  }
+
+  @media (max-width: 900px) {
+    width: 40%;
   }
 `;

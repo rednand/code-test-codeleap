@@ -8,6 +8,10 @@ export const SignUpBloc = styled.div`
   padding: 1% 2%;
   border: 3px solid #000000;
   box-sizing: border-box;
+
+  @media (max-width: 900px) {
+    width: 80%;
+  }
 `;
 
 export const Welcomeh2 = styled.h2`
@@ -16,6 +20,10 @@ export const Welcomeh2 = styled.h2`
   line-height: 26px;
   color: #000000;
   margin: 2% 0 4%;
+
+  @media (max-width: 900px) {
+    font-size: 15px;
+  }
 `;
 
 export const Label = styled.label`
@@ -24,6 +32,10 @@ export const Label = styled.label`
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
+
+  @media (max-width: 900px) {
+    font-size: 12px;
+  }
 `;
 
 export const UserNameInput = styled.input`
@@ -53,6 +65,13 @@ export const EnterButton = styled.button`
   display: block;
   cursor: pointer;
   border: none;
+
+  @media (max-width: 900px) {
+    margin: 1% 0% 2% 70%;
+    font-size: 12px;
+    height: 20px;
+    width: 30%;
+  }
 `;
 
 export const EnterButtonDisable = styled.button`
@@ -63,4 +82,11 @@ export const EnterButtonDisable = styled.button`
   color: #000000;
   display: block;
   border: none;
+
+  @media (max-width: 900px) {
+    margin: 1% 0% 2% 70%;
+    font-size: 12px;
+    height: 20px;
+    width: 30%;
+  }
 `;

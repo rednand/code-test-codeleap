@@ -8,7 +8,7 @@ function Logo() {
   return (
     <>
       <LogoImg>
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="logo" alt="logo" />
         <Login onClick={() => navigate("/sign")}>ENTER</Login>
       </LogoImg>
     </>

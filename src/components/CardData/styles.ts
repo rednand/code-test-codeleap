@@ -7,6 +7,10 @@ export const Card = styled.div`
   font-family: "Roboto";
   box-sizing: border-box;
   border: 3px solid #000000;
+
+  @media (max-width: 900px) {
+    width: 80%;
+  }
 `;
 
 export const CardHeaderIcons = styled.h2`
@@ -52,6 +56,11 @@ export const CardHeaderIcons = styled.h2`
     justify-content: end;
     align-content: flex-end;
     height: 1.8rem;
+
+    @media (max-width: 900px) {
+      width: 25%;
+      margin: 1% 75%;
+    }
   }
 `;
 
@@ -62,6 +71,10 @@ export const CardHeader = styled.h2`
   line-height: 26px;
   word-wrap: break-word;
   width: 50%;
+
+  @media (max-width: 900px) {
+    font-size: 15px;
+  }
 `;
 
 export const CardBody = styled.div`
@@ -76,6 +89,10 @@ export const CardNameDate = styled.div`
   font-size: 18px;
   line-height: 21px;
   text-align: right;
+
+  @media (max-width: 900px) {
+    font-size: 15px;
+  }
 `;
 
 export const CardName = styled.p`
@@ -91,6 +108,10 @@ export const CardContent = styled.p`
   font-size: 18px;
   line-height: 21px;
   word-wrap: break-word;
+
+  @media (max-width: 900px) {
+    font-size: 15px;
+  }
 `;
 
 export const CardModalFooterButton = styled.button`
@@ -107,4 +128,8 @@ export const CardModalFooterButton = styled.button`
   color: #000000;
   width: 20%;
   cursor: pointer;
+
+  @media (max-width: 900px) {
+    width: 80%;
+  }
 `;
