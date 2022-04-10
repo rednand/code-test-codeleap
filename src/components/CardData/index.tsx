@@ -42,11 +42,11 @@ function CardData() {
   const { ShowingModalEdit, clickModalEdit } = useModalEdit();
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
-  const userX = useSelector((state) => state.data);
+  const dataStore = useSelector((state) => state.data);
   const user = useSelector((state) => state.user.user);
   const [updateCard, setUpdateCard] = useState({ ...initialContent });
 
-  const fetchProducts = async () => {
+  const getData = async () => {
     const response = await api
       .get("")
       .then((response) => response.data.results)
@@ -58,12 +58,7 @@ function CardData() {
 
   const updatePost = async (id) => {
     try {
-      await updateCardPost(
-        id,
-        user,
-        updateCard.title,
-        updateCard.content
-      );
+      await updateCardPost(id, user, updateCard.title, updateCard.content);
     } catch (error) {
       console.log(error);
     }
@@ -78,13 +73,13 @@ function CardData() {
   };
 
   useEffect(() => {
-    fetchProducts();
-    setData(userX.data);
+    getData();
+    setData(dataStore.data);
   }, []);
 
   return (
     <>
-      {userX.data.map((item) => {
+      {dataStore.data.map((item) => {
         return (
           <Card key={item.id}>
             {user === item.username ? (

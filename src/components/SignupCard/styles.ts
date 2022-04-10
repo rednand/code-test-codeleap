@@ -7,6 +7,13 @@ export const SignUpBloc = styled.div`
   background: #ffffff;
   box-sizing: border-box;
   padding: 1% 2%;
+
+  @media (max-width: 900px) {
+    width: 50%;
+  }
+  @media (max-width: 400px) {
+    width: 80%;
+  }
 `;
 
 export const Welcomeh2 = styled.h2`
@@ -45,4 +52,14 @@ export const EnterButton = styled.button`
   display: block;
   cursor: pointer;
   border: none;
+
+  @media (max-width: 900px) {
+    margin: 5% 0% 2% 70%;
+    width: 30%;
+  }
+
+  @media (max-width: 400px) {
+    margin: 5% 0% 2% 60%;
+    width: 40%;
+  }
 `;

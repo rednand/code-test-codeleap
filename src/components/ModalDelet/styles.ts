@@ -38,6 +38,11 @@ export const ModalWrapper = styled.div`
   z-index: 1050;
   width: 40%;
   outline: 0;
+
+  @media (max-width: 900px) {
+    width: 80%;
+    left: 10%;
+  }
 `;
 export const ModalDiv = styled.div`
   z-index: 100;

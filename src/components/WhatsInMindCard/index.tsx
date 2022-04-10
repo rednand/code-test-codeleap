@@ -25,7 +25,7 @@ function InputWhatsMind() {
 
   const [createCard, setCreateCard] = useState({ ...initialContent });
 
-  const fetchProducts = async () => {
+  const getData = async () => {
     const response = await api
       .get("")
       .then((response) => response.data.results)
@@ -52,7 +52,7 @@ function InputWhatsMind() {
         createCard.title,
         createCard.content
       );
-      fetchProducts();
+      getData();
       setCreateCard(response);
     } catch (error) {
       console.log(error);

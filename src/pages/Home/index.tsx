@@ -1,8 +1,8 @@
 import React from "react";
-import Home from "../../components/Logo";
+import Logo from "../../components/Logo";
 
 function InitialPage() {
-  return <Home />;
+  return <Logo />;
 }
 
 export default InitialPage;
